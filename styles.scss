@@ -1,0 +1,121 @@
+// Variables
+$primary-color: #5dee55;
+$secondary-color: #3b5998;
+$font-family: 'Arial', sans-serif;
+$border-radius: 8px;
+$padding: 10px 20px;
+$transition-time: 0.3s;
+$max-width: 1200px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid-layout($columns) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: 20px;
+}
+
+@mixin transition($property) {
+  transition: $property $transition-time ease-in-out;
+}
+
+// Global styles
+body {
+  font-family: $font-family;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+// Header styles
+header {
+  background-color: $primary-color;
+  padding: $padding;
+
+  nav {
+    ul {
+      @include flex-center;
+      list-style: none;
+      padding: 0;
+      
+      li {
+        margin: 0 15px;
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          @include transition(color);
+
+          &:hover {
+            color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Section styles
+section {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+
+  h2 {
+    color: $secondary-color;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.1em;
+    color: #666666;
+  }
+
+  .description {
+    @include grid-layout(3);
+    p {
+      background-color: lighten($primary-color, 35%);
+      padding: 15px;
+      border-radius: $border-radius;
+    }
+  }
+}
+
+// Footer styles
+footer {
+  background-color: $secondary-color;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+// Button styles
+button {
+  background-color: $primary-color;
+  color: white;
+  padding: $padding;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: 1em;
+  @include transition(background-color);
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}

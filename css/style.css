@@ -1,0 +1,102 @@
+/* Resetear padding y margin */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Fuente personalizada */
+@font-face {
+    font-family: "Raleway-Regular";
+    src: url(../font/Raleway/static/Raleway-Regular.ttf);
+}
+
+/* Estilos generales */
+body {
+    background-color: rgb(233, 229, 225);
+    font-family: "Raleway-Regular";
+}
+
+/* Header */
+header {
+    background-color: darkgrey;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Navbar */
+nav {
+    display: inline-block;
+}
+
+/* Contenedor de logo */
+.contenedor-logo {
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 250px;
+}
+
+/* Tarjetas - Estilos generales */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación de desvanecimiento para el texto central */
+.text-center {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Diseño responsivo */
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .descripcion-container {
+        flex-direction: column;
+    }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        flex-direction: row;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1025px) {
+    .navbar {
+        flex-direction: row;
+    }
+
+    .card {
+        width: 18rem;
+    }
+}
